@@ -18,10 +18,15 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+/**
+ * This class adapts the individual movie list items to the general RecyclerView
+ * container layout.
+ */
 public class DisplayMovieAdapter extends RecyclerView.Adapter<DisplayMovieAdapter.ViewHolder> {
 
     private static final String TAG = "DisplayMovieAdapter";
 
+    // variables that store all the information needed about each movie
     private ArrayList<String> mImages = new ArrayList<>();
     private ArrayList<String> mTitles = new ArrayList<>();
     private ArrayList<String> mYears = new ArrayList<>();
@@ -29,6 +34,9 @@ public class DisplayMovieAdapter extends RecyclerView.Adapter<DisplayMovieAdapte
     private ArrayList<String> mDescription = new ArrayList<>();
     private Context mContext;
 
+    /**
+     * Constructor which initializes each variable declared above.
+     */
     public DisplayMovieAdapter(ArrayList<String> mImages, ArrayList<String> mTitles, ArrayList<String> mYears,
                                ArrayList<String> mDirectors, ArrayList<String> mDescription, Context mContext) {
 
@@ -40,6 +48,12 @@ public class DisplayMovieAdapter extends RecyclerView.Adapter<DisplayMovieAdapte
         this.mContext = mContext;
     }
 
+    /**
+     * View Holder class which inflates the view
+     * @param parent the parent ViewGroup
+     * @param viewType where the widget item is held is position
+     * @return the holder of widget items
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -56,6 +70,13 @@ public class DisplayMovieAdapter extends RecyclerView.Adapter<DisplayMovieAdapte
 
         holder.movieTitle.setText(mTitles.get(position));
 
+        // retrieve the images and set into ImageView widget
+        Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.image);
+
+        // retrieve the title of the movie to be set next to its image
+        holder.movieTitle.setText(mTitles.get(position));
+
+        // create an on click listener to each item
         holder.movieLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,12 +95,20 @@ public class DisplayMovieAdapter extends RecyclerView.Adapter<DisplayMovieAdapte
         });
     }
 
+    /**
+     * getter for the size of the list created
+     * @return the size of the list
+     */
     @Override
     public int getItemCount() {
         return mTitles.size();
     }
 
 
+    /**
+     * create a ViewHolder class which will store the images with names
+     * next to them in a RelativeLayout form.
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         CircleImageView image;

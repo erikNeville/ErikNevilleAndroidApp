@@ -1,5 +1,6 @@
 package com.example.erik.eriknevilead340;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,6 +24,7 @@ public class MovieInfoActivity extends AppCompatActivity implements NavigationVi
     private static final String TAG = "MovieInfoActivity";
     private DrawerLayout drawer;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,11 @@ public class MovieInfoActivity extends AppCompatActivity implements NavigationVi
         toggle.syncState();
     }
 
+
+
+    /**
+     * retrieves the intents for each detail required about each movie
+     */
     private void getIntents() {
         Log.d(TAG, "getIntents: checking for incoming intents");
 
@@ -63,6 +70,9 @@ public class MovieInfoActivity extends AppCompatActivity implements NavigationVi
         }
     }
 
+    /**
+     * Retrieves each view which displays the necessary information about the movie
+     */
     private void setIntents(String imageURL, String movieTitle, String movieYear, String movieDirector, String movieDescription) {
         Log.d(TAG, "setIntents: setting intents to widgets");
 

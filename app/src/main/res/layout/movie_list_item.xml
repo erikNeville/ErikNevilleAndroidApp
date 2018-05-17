@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+<!-- These are the individual items that will be contained inside of the container
+        I made in activity_display_movie.xml-->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:padding="15dp"
     android:id="@+id/movie_layout">
+
+
+    <!-- Allows images to be displayed as circles for better asthetic -->
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
@@ -20,5 +29,6 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dp"
         android:textSize="17sp"/>
+
 
 </RelativeLayout>

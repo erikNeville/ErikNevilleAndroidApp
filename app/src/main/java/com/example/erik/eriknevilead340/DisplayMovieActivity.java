@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class DisplayMovieActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+
     private static final String TAG = "DisplayMovieActivity";
 
     private ArrayList<String> imageURL = new ArrayList<>();
@@ -28,10 +29,13 @@ public class DisplayMovieActivity extends AppCompatActivity implements Navigatio
     private ArrayList<String> director = new ArrayList<>();
     private ArrayList<String> description = new ArrayList<>();
 
-    private DrawerLayout drawer ;
+    private DrawerLayout drawer;
 
 
-    private void initBitmaps(){
+    /**
+     * Load information about each movie into their respective ArrayLists
+     */
+    private void initBitmaps() {
         imageURL.add("http://collider.com/wp-content/uploads/2016/10/night-of-comet.jpg");
         title.add("Night of the Comet");
         year.add("1984");
@@ -161,14 +165,52 @@ public class DisplayMovieActivity extends AppCompatActivity implements Navigatio
         initRecyclerView();
     }
 
-    private void initRecyclerView() {
-        Log.d(TAG, "initRecyclerView: init recyclerview");
+        /**
+         * creates a DisplayMovieAdapter object which will take in the movie information defined above
+         * in order to create a RecyclerView of that information.
+         */
+        private void initRecyclerView () {
+            Log.d(TAG, "initRecyclerView: init recyclerview");
 
-        RecyclerView reyclerView = findViewById(R.id.movie_display_view);
-        DisplayMovieAdapter adapter = new DisplayMovieAdapter(imageURL, title, year, director, description, this);
-        reyclerView.setAdapter(adapter);
-        reyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
+            RecyclerView reyclerView = findViewById(R.id.movie_display_view);
+            DisplayMovieAdapter adapter = new DisplayMovieAdapter(imageURL, title, year, director, description, this);
+            reyclerView.setAdapter(adapter);
+            reyclerView.setLayoutManager(new LinearLayoutManager(this));
+        }
+
+
+        @Override
+        public void onBackPressed () {
+            if (drawer.isDrawerOpen(GravityCompat.START)) {
+                drawer.closeDrawer(GravityCompat.START);
+            } else {
+                super.onBackPressed();
+            }
+        }
+
+        @Override
+        protected void onCreate (Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_display_movie);
+
+            Log.d(TAG, "onCreate: started");
+
+            initBitmaps();
+
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+            drawer = findViewById(R.id.drawer_layout);
+
+            NavigationView navigationView = findViewById(R.id.nav_view);
+            navigationView.setNavigationItemSelectedListener(this);
+
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                    R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.addDrawerListener(toggle);
+            toggle.syncState();
+        }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -193,37 +235,5 @@ public class DisplayMovieActivity extends AppCompatActivity implements Navigatio
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_movie);
-
-        Log.d(TAG, "onCreate: started");
-
-        initBitmaps();
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        drawer = findViewById(R.id.drawer_layout);
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
     }
 }
