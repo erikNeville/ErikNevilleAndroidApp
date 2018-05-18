@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.erik.eriknevilead340">
 
-
     <!-- allows images to be pulled from the web -->
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,30 +13,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".DisplayMessageActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".DisplayMovieActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".MovieInfoActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".AboutActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+        <activity
+            android:name=".DisplayMessageActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DisplayMovieActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MovieInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AboutActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ShowTraffic"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

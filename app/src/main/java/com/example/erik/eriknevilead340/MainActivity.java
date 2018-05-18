@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        mSharedPreferences = this.getSharedPreferences(Context.MODE_PRIVATE);
+        mSharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
         mSharedPreferencesHelper = new SharedPreferencesHelper(mSharedPreferences);
 
 
@@ -117,6 +117,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_movies:
                 intent = new Intent(this, DisplayMovieActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_traffic:
+                intent = new Intent(this, ShowTraffic.class);
                 startActivity(intent);
                 break;
 
