@@ -23,7 +23,7 @@ public class TrafficRecycler extends RecyclerView.Adapter<TrafficRecycler.MyView
     private Context context;
     private ArrayList<TrafficModel> listData;
 
-    public RecyclerAdapterTraffic(Context context, ArrayList<TrafficModel> listData) {
+    public TrafficRecycler(Context context, ArrayList<TrafficModel> listData) {
         this.context = context;
         this.listData = listData;
     }

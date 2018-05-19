@@ -21,7 +21,7 @@ public class SharedPreferencesHelper {
         return editor.commit();
     }
 
-    public String getKeyEntry() {
+    public String getEntry() {
         return mSharedPreferences.getString(KEY_ENTRY, "");
     }
 }

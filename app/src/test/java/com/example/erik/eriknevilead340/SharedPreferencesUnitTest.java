@@ -44,12 +44,15 @@ public class SharedPreferencesUnitTest {
     }
 
     @Test
-    private void saveAndReadEntry() {
+    public void sharedPreferences_SaveAndReadEntry() {
+
+        // Save the personal information to SharedPreferences
         boolean success = mMockSharedPreferencesHelper.saveEntry(txt);
 
         assertThat("SharedPreferenceEntry.save... returns true",
                 success, is(true));
 
-        assertEquals(txt, mMockSharedPreferencesHelper.getKeyEntry());
+        assertEquals(txt, mMockSharedPreferencesHelper.getEntry());
+
     }
 }
