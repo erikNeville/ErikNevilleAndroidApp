@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Button 2", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -92,7 +93,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         img3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Button 3", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, ShowTraffic.class);
+                startActivity(intent);
             }
         });
 

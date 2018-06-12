@@ -226,6 +226,11 @@ public class DisplayMovieActivity extends AppCompatActivity implements Navigatio
                 startActivity(intent);
                 break;
 
+            case R.id.nav_traffic:
+                intent = new Intent(this, ShowTraffic.class);
+                startActivity(intent);
+                break;
+
 
             case R.id.nav_settings:
                 Toast toast = Toast.makeText(this, "Settings", Toast.LENGTH_SHORT);

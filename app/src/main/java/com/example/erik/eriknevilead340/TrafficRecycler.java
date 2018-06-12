@@ -1,24 +1,21 @@
 package com.example.erik.eriknevilead340;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 
 public class TrafficRecycler extends RecyclerView.Adapter<TrafficRecycler.MyViewHolder> {
-    private static final String TAG = "TrafficRecycler";
+    private static final String TAG = "TrafficDisplay";
 
     private Context context;
     private ArrayList<TrafficModel> listData;
@@ -31,22 +28,21 @@ public class TrafficRecycler extends RecyclerView.Adapter<TrafficRecycler.MyView
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.activity_traffic_list, parent, false);
+        View v= LayoutInflater.from(context).inflate(R.layout.activity_traffic_list, parent, false);
         return new MyViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Log.d(TAG, "onBindViewHolder: -----times");
-
         TrafficModel item = listData.get(position);
-        String desc = item.getDescription();
-        String imgURL = item.getImgURL();
+
+        String description = item.getDescription();
+        String imageUrl = item.getImgURL();
         String type = item.getType();
 
-        holder.Description.setText(desc);
-        Picasso.with(context).load(imgURL).fit().centerInside().into(holder.image2);
-        holder.type.setType(type);
+        holder.Description.setText(description);
+        Picasso.with(context).load(imageUrl).fit().centerInside().into(holder.image2);
+        holder.type.setText(type);
     }
 
     @Override
@@ -54,25 +50,12 @@ public class TrafficRecycler extends RecyclerView.Adapter<TrafficRecycler.MyView
         return listData.size();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        getSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        context = getApplicationContext();
-
-
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView Description, type;
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView Description;
         ImageView image2;
+        TextView type;
 
-
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(View itemView){
             super(itemView);
 
             Description = itemView.findViewById(R.id.trafficDescription);
