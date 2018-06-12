@@ -69,8 +69,12 @@ public class AboutActivity extends AppCompatActivity implements NavigationView.O
                 intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nav_movies:
-                intent = new Intent(this, DisplayMovieActivity.class);
+            case R.id.nav_about:
+                intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_traffic:
+                intent = new Intent(this, ShowTraffic.class);
                 startActivity(intent);
                 break;
             case R.id.nav_settings:

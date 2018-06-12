@@ -106,6 +106,11 @@ public class MovieInfoActivity extends AppCompatActivity implements NavigationVi
                 startActivity(intent);
                 break;
 
+            case R.id.nav_traffic:
+                intent = new Intent(this, ShowTraffic.class);
+                startActivity(intent);
+                break;
+
 
             case R.id.nav_settings:
                 Toast toast = Toast.makeText(this, "Settings", Toast.LENGTH_SHORT);
