@@ -64,35 +64,35 @@
 
             <ImageView
                 android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="177px"
+                android:layout_height="177px"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
-                app:srcCompat="@drawable/button_1" />
+                app:srcCompat="@drawable/ic_movies" />
 
             <ImageView
                 android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="177px"
+                android:layout_height="177px"
                 android:layout_column="1"
                 android:layout_row="0"
-                app:srcCompat="@drawable/button_2" />
+                app:srcCompat="@drawable/ic_about" />
 
             <ImageView
                 android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="177px"
+                android:layout_height="177px"
                 android:layout_column="0"
                 android:layout_row="1"
-                app:srcCompat="@drawable/button_3" />
+                app:srcCompat="@drawable/ic_traffic" />
 
             <ImageView
                 android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="177px"
+                android:layout_height="177px"
                 android:layout_column="1"
                 android:layout_row="1"
-                app:srcCompat="@drawable/button_4" />
+                app:srcCompat="@drawable/ic_map" />
         </GridLayout>
     </LinearLayout>
 
