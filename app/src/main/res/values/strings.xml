@@ -18,6 +18,8 @@
     will be taken to a RecyclerView list of different zombie movies, which can be clicked on to learn
     further information about which ever movie. Thanks for checking it out!</string>
 
+    <string name="apiKey">AIzaSyDtvQkTYsbTZdjXi0o-rhVxfCa-w-ber8s</string>
+
 
     <string name="send_message">Send</string>
 

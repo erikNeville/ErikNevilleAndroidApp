@@ -21,6 +21,10 @@
             android:icon="@drawable/ic_traffic"
             android:title="@string/nav_traffic" />
 
+        <item android:id="@+id/nav_map"
+            android:icon="@drawable/ic_map"
+            android:title="Map" />
+
 
     </group>
 
