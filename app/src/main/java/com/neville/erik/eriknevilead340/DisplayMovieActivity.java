@@ -12,7 +12,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -172,7 +171,7 @@ public class DisplayMovieActivity extends AppCompatActivity implements Navigatio
         private void initRecyclerView () {
             Log.d(TAG, "initRecyclerView: init recyclerview");
 
-            RecyclerView reyclerView = findViewById(R.id.movie_display_view);
+            RecyclerView reyclerView = findViewById(com.erikneville.erik.eriknevilead340.R.id.movie_display_view);
             DisplayMovieAdapter adapter = new DisplayMovieAdapter(imageURL, title, year, director, description, this);
             reyclerView.setAdapter(adapter);
             reyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -191,22 +190,22 @@ public class DisplayMovieActivity extends AppCompatActivity implements Navigatio
         @Override
         protected void onCreate (Bundle savedInstanceState){
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_display_movie);
+            setContentView(com.erikneville.erik.eriknevilead340.R.layout.activity_display_movie);
 
             Log.d(TAG, "onCreate: started");
 
             initBitmaps();
 
-            Toolbar toolbar = findViewById(R.id.toolbar);
+            Toolbar toolbar = findViewById(com.erikneville.erik.eriknevilead340.R.id.toolbar);
             setSupportActionBar(toolbar);
 
-            drawer = findViewById(R.id.drawer_layout);
+            drawer = findViewById(com.erikneville.erik.eriknevilead340.R.id.drawer_layout);
 
-            NavigationView navigationView = findViewById(R.id.nav_view);
+            NavigationView navigationView = findViewById(com.erikneville.erik.eriknevilead340.R.id.nav_view);
             navigationView.setNavigationItemSelectedListener(this);
 
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                    R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                    com.erikneville.erik.eriknevilead340.R.string.navigation_drawer_open, com.erikneville.erik.eriknevilead340.R.string.navigation_drawer_close);
             drawer.addDrawerListener(toggle);
             toggle.syncState();
         }
@@ -216,28 +215,28 @@ public class DisplayMovieActivity extends AppCompatActivity implements Navigatio
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.nav_home:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_home:
                 intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
 
-            case R.id.nav_about:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_about:
                 intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 break;
 
-            case R.id.nav_traffic:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_traffic:
                 intent = new Intent(this, ShowTraffic.class);
                 startActivity(intent);
                 break;
 
 
-            case R.id.nav_settings:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_settings:
                 Toast toast = Toast.makeText(this, "Settings", Toast.LENGTH_SHORT);
                 toast.show();
                 break;
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(com.erikneville.erik.eriknevilead340.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

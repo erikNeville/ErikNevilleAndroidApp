@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "Neville.AD340.Application"
+        applicationId "com.example.neville.AD340"
         minSdkVersion 27
         targetSdkVersion 27
         versionCode 1

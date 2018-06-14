@@ -28,21 +28,21 @@ public class MovieInfoActivity extends AppCompatActivity implements NavigationVi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movieinfo);
+        setContentView(com.erikneville.erik.eriknevilead340.R.layout.activity_movieinfo);
         Log.d(TAG, "onCreate: started");
 
         getIntents();
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(com.erikneville.erik.eriknevilead340.R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(com.erikneville.erik.eriknevilead340.R.id.drawer_layout);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(com.erikneville.erik.eriknevilead340.R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                com.erikneville.erik.eriknevilead340.R.string.navigation_drawer_open, com.erikneville.erik.eriknevilead340.R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
     }
@@ -76,19 +76,19 @@ public class MovieInfoActivity extends AppCompatActivity implements NavigationVi
     private void setIntents(String imageURL, String movieTitle, String movieYear, String movieDirector, String movieDescription) {
         Log.d(TAG, "setIntents: setting intents to widgets");
 
-        TextView title = findViewById(R.id.movieTitle);
+        TextView title = findViewById(com.erikneville.erik.eriknevilead340.R.id.movieTitle);
         title.setText(movieTitle);
 
-        ImageView imageView = findViewById(R.id.movieImage);
+        ImageView imageView = findViewById(com.erikneville.erik.eriknevilead340.R.id.movieImage);
         Glide.with(this).asBitmap().load(imageURL).into(imageView);
 
-        TextView year = findViewById(R.id.movieYear);
+        TextView year = findViewById(com.erikneville.erik.eriknevilead340.R.id.movieYear);
         year.setText(movieYear);
 
-        TextView director = findViewById(R.id.movieDirector);
+        TextView director = findViewById(com.erikneville.erik.eriknevilead340.R.id.movieDirector);
         director.setText(movieDirector);
 
-        TextView description = findViewById(R.id.movieDescription);
+        TextView description = findViewById(com.erikneville.erik.eriknevilead340.R.id.movieDescription);
         description.setText(movieDescription);
     }
 
@@ -96,28 +96,28 @@ public class MovieInfoActivity extends AppCompatActivity implements NavigationVi
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.nav_home:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_home:
                 intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
 
-            case R.id.nav_about:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_about:
                 intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 break;
 
-            case R.id.nav_traffic:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_traffic:
                 intent = new Intent(this, ShowTraffic.class);
                 startActivity(intent);
                 break;
 
 
-            case R.id.nav_settings:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_settings:
                 Toast toast = Toast.makeText(this, "Settings", Toast.LENGTH_SHORT);
                 toast.show();
                 break;
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(com.erikneville.erik.eriknevilead340.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

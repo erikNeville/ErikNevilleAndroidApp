@@ -57,7 +57,7 @@ public class DisplayMovieAdapter extends RecyclerView.Adapter<DisplayMovieAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(com.erikneville.erik.eriknevilead340.R.layout.movie_list_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -118,9 +118,9 @@ public class DisplayMovieAdapter extends RecyclerView.Adapter<DisplayMovieAdapte
         public ViewHolder(View itemView) {
             super(itemView);
 
-            image = itemView.findViewById(R.id.image);
-            movieTitle = itemView.findViewById(R.id.movie_title);
-            movieLayout = itemView.findViewById(R.id.movie_layout);
+            image = itemView.findViewById(com.erikneville.erik.eriknevilead340.R.id.image);
+            movieTitle = itemView.findViewById(com.erikneville.erik.eriknevilead340.R.id.movie_title);
+            movieLayout = itemView.findViewById(com.erikneville.erik.eriknevilead340.R.id.movie_layout);
         }
     }
 

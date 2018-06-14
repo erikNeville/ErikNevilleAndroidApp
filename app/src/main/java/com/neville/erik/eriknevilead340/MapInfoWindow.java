@@ -24,16 +24,16 @@ public class MapInfoWindow implements GoogleMap.InfoWindowAdapter {
 
     @Override
     public View getInfoContents(Marker marker) {
-        View view = ((Activity) context).getLayoutInflater().inflate(R.layout.map_info_window, null);
+        View view = ((Activity) context).getLayoutInflater().inflate(com.erikneville.erik.eriknevilead340.R.layout.map_info_window, null);
 
-        TextView camName = view.findViewById(R.id.info_window_description);
-        ImageView camPic = view.findViewById(R.id.info_window_pic);
+        TextView camName = view.findViewById(com.erikneville.erik.eriknevilead340.R.id.info_window_description);
+        ImageView camPic = view.findViewById(com.erikneville.erik.eriknevilead340.R.id.info_window_pic);
 
         camName.setText(marker.getTitle());
         MapWindowModel camData = (MapWindowModel)marker.getTag();
         String imageURL = camData.getImageURL();
 
-        Picasso.with(view.getContext()).load(imageURL).error(R.mipmap.ic_launcher).resize(450, 330).into(camPic, new MarkerCallback(marker));
+        Picasso.with(view.getContext()).load(imageURL).error(com.erikneville.erik.eriknevilead340.R.mipmap.ic_launcher).resize(450, 330).into(camPic, new MarkerCallback(marker));
 
         return view;
     }

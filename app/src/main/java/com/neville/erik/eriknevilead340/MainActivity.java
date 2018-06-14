@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,10 +14,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -27,8 +23,6 @@ import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -45,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void sendMessage(View view) {
 
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText = (EditText)findViewById(R.id.editText);
+        EditText editText = (EditText)findViewById(com.erikneville.erik.eriknevilead340.R.id.editText);
         String message = editText.getText().toString();
         if (validInput(message)) {
             mSharedPreferencesHelper.saveEntry(message);
@@ -59,17 +53,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(com.erikneville.erik.eriknevilead340.R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(com.erikneville.erik.eriknevilead340.R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(com.erikneville.erik.eriknevilead340.R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(com.erikneville.erik.eriknevilead340.R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                com.erikneville.erik.eriknevilead340.R.string.navigation_drawer_open, com.erikneville.erik.eriknevilead340.R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -82,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
          * The first image will direct to the DisplayMovieActivity, which is a RecyclerView,
          * while the rest will display a Toast message
          */
-        img1 = (ImageView)findViewById(R.id.button1);
+        img1 = (ImageView)findViewById(com.erikneville.erik.eriknevilead340.R.id.button1);
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        img2 = (ImageView)findViewById(R.id.button2);
+        img2 = (ImageView)findViewById(com.erikneville.erik.eriknevilead340.R.id.button2);
         img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        img3 = (ImageView)findViewById(R.id.button3);
+        img3 = (ImageView)findViewById(com.erikneville.erik.eriknevilead340.R.id.button3);
         img3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        img4 = (ImageView)findViewById(R.id.button4);
+        img4 = (ImageView)findViewById(com.erikneville.erik.eriknevilead340.R.id.button4);
         img4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,17 +123,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         boolean connected = isActive != null && isActive.isConnectedOrConnecting();
         switch (item.getItemId()) {
-            case R.id.nav_about:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_about:
                 intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 break;
 
-            case R.id.nav_movies:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_movies:
                 intent = new Intent(this, DisplayMovieActivity.class);
                 startActivity(intent);
                 break;
 
-            case R.id.nav_traffic:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_traffic:
                 if(connected) {
                     intent = new Intent(this, ShowTraffic.class);
                     startActivity(intent);
@@ -148,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 break;
 
-            case R.id.nav_map:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_map:
                 if (connected) {
                     if (isServicesOK()) {
                         intent = new Intent(this, MapActivity.class);
@@ -158,12 +152,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
                 }
 
-            case R.id.nav_settings:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_settings:
                 Toast toast = Toast.makeText(this, "Settings", Toast.LENGTH_SHORT);
                 toast.show();
                 break;
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(com.erikneville.erik.eriknevilead340.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

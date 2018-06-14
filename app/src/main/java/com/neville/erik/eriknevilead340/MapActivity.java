@@ -50,7 +50,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        setContentView(com.erikneville.erik.eriknevilead340.R.layout.activity_map);
 
 //        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(myToolbar);
@@ -66,7 +66,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     }
 
     private void initMap() {
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(com.erikneville.erik.eriknevilead340.R.id.map);
         mapFragment.getMapAsync(MapActivity.this);
     }
 
@@ -201,7 +201,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.drawer_menu, menu);
+        getMenuInflater().inflate(com.erikneville.erik.eriknevilead340.R.menu.drawer_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -209,23 +209,23 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.nav_home:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_home:
                 intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
 
-            case R.id.nav_about:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_about:
                 intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
 
-            case R.id.nav_movies:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_movies:
                 intent = new Intent(this, DisplayMovieActivity.class);
                 startActivity(intent);
 
-            case R.id.nav_traffic:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_traffic:
                 intent = new Intent(this, ShowTraffic.class);
                 startActivity(intent);
 
-            case R.id.nav_settings:
+            case com.erikneville.erik.eriknevilead340.R.id.nav_settings:
                 Toast toast = Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT);
                 toast.show();
                 return true;

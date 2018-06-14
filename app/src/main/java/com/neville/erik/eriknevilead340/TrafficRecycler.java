@@ -28,7 +28,7 @@ public class TrafficRecycler extends RecyclerView.Adapter<TrafficRecycler.MyView
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(context).inflate(R.layout.activity_traffic_list, parent, false);
+        View v= LayoutInflater.from(context).inflate(com.erikneville.erik.eriknevilead340.R.layout.activity_traffic_list, parent, false);
         return new MyViewHolder(v);
     }
 
@@ -58,9 +58,9 @@ public class TrafficRecycler extends RecyclerView.Adapter<TrafficRecycler.MyView
         public MyViewHolder(View itemView){
             super(itemView);
 
-            Description = itemView.findViewById(R.id.trafficDescription);
-            image2 = itemView.findViewById(R.id.image2);
-            type = itemView.findViewById(R.id.trafficType);
+            Description = itemView.findViewById(com.erikneville.erik.eriknevilead340.R.id.trafficDescription);
+            image2 = itemView.findViewById(com.erikneville.erik.eriknevilead340.R.id.image2);
+            type = itemView.findViewById(com.erikneville.erik.eriknevilead340.R.id.trafficType);
         }
     }
 }
